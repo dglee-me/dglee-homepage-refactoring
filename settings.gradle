@@ -1,0 +1,4 @@
+rootProject.name = 'dglee-homepage'
+include 'homepage-user'
+include 'homepage-common'
+
