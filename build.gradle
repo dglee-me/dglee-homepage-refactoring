@@ -46,6 +46,10 @@ project(':homepage-user') {
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter-web'
 
+        // Swagger-UI https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui
+        implementation "io.springfox:springfox-boot-starter:3.0.0"
+
+
         implementation project(':homepage-common')
     }
 }
