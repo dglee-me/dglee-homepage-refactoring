@@ -34,6 +34,6 @@ public class UserController {
             return new ResponseEntity<>(null, HttpStatus.OK);
         }
 
-        return new ResponseEntity<>(user, HttpStatus.OK);
+        return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 }
