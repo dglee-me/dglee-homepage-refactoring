@@ -39,12 +39,18 @@ subprojects {
 project(':homepage-common') {
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter-web'
+
+        // Spring Security
+        implementation 'org.springframework.boot:spring-boot-starter-security'
     }
 }
 
 project(':homepage-user') {
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter-web'
+
+        // Spring Security
+        implementation 'org.springframework.boot:spring-boot-starter-security'
 
         // Swagger-UI https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui
         implementation "io.springfox:springfox-boot-starter:3.0.0"

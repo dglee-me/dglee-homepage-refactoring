@@ -25,15 +25,15 @@ public class UserController {
 
         if(userService.isExistUserByEmailId(dto.getEmailId())) {
             log.error("user add failed. duplicate this email. email: {}", dto.getEmailId());
-            return new ResponseEntity<>(null, HttpStatus.OK);
+            return new ResponseEntity<>(dto.convert(User.class), HttpStatus.CONFLICT);
         }
 
         User user = userService.save(dto);
         if(user == null) {
             log.error("user add failed. cause save action failed. email: {}", dto.getEmailId());
-            return new ResponseEntity<>(null, HttpStatus.OK);
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
 
-        return new ResponseEntity<>(user, HttpStatus.CREATED);
+        return new ResponseEntity<>(null, HttpStatus.CREATED);
     }
 }

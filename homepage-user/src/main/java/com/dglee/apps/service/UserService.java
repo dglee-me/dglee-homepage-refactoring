@@ -4,6 +4,7 @@ import com.dglee.apps.dto.UserDTO;
 import com.dglee.apps.entity.User;
 import com.dglee.apps.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.NotNull;
@@ -11,6 +12,8 @@ import javax.validation.constraints.NotNull;
 @RequiredArgsConstructor
 @Service
 public class UserService {
+
+    final PasswordEncoder passwordEncoder;
 
     final UserRepository userRepository;
 
@@ -36,6 +39,9 @@ public class UserService {
         if(dto.getRegistDate() == 0) {
             dto.setRegistDate(System.currentTimeMillis());
         }
+
+        // password encrypt
+        dto.setPw(passwordEncoder.encode(dto.getPw()));
 
         return userRepository.save(dto.convert(User.class));
     }
